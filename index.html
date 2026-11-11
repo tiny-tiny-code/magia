@@ -58,7 +58,7 @@ body.done .garden,body.done #dots{display:none}
 <main class="house">
   <h1>Un poco de magia</h1>
   <p id="q">¿Qué necesitas esta semana?</p>
-  <p id="hint">Elige tres. Puedes repetir.</p>
+  <p id="hint">Elige tres, puedes repetir. Con ellas vas a juntar ingredientes para llevar tu hechizo en el bolsillo.</p>
   <svg id="jar" viewBox="0 0 120 150" role="img" aria-label="Frasco del hechizo">
     <defs>
       <clipPath id="cp"><path d="M40 34h40v10c16 5 24 16 24 36v44c0 12-8 20-20 20H36c-12 0-20-8-20-20V80c0-20 8-31 24-36z"/></clipPath>
@@ -139,9 +139,9 @@ async function pick(e,btn){
 function reveal(){
   const s=spell(picks,wk());
   const L=s.cosas.map(c=>`<li>${cap(c[0])}</li>`).join(''),Rr=s.rits.map(r=>`<li>${r[0]}</li>`).join('');
-  $('#rc').innerHTML=`<h2>Receta de la semana</h2><h3>Ingredientes</h3><ul>${L}</ul><h3>Modo de preparación</h3><ol>${Rr}</ol><p class="f">Tus tres: ${[...picks].sort((a,b)=>a.localeCompare(b,'es')).join(', ')}</p><p class="c">Conservar en el bolsillo hasta el domingo.</p>`;
+  $('#rc').innerHTML=`<h2>Receta de la semana</h2><h3>Ingredientes para llevar en el bolsillo</h3><ul>${L}</ul><h3>Modo de preparación</h3><ol>${Rr}</ol><p class="f">Tus tres: ${[...picks].sort((a,b)=>a.localeCompare(b,'es')).join(', ')}</p><p class="c">Conservar en el bolsillo hasta el domingo.</p>`;
   document.body.classList.add('done');$('#jar').classList.add('full');
-  $('#q').textContent='Para esta semana';$('#hint').textContent='Se renueva el domingo.';$('#rc').hidden=false;
+  $('#q').textContent='para esta semana';$('#hint').textContent='Se renueva el domingo.';$('#rc').hidden=false;
 }
 // jardín
 const g=$('#garden');
